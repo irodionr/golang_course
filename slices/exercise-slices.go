@@ -1,0 +1,22 @@
+package main
+
+import "golang.org/x/tour/pic"
+
+// Pic - dx*dy slice of uint8
+func Pic(dx, dy int) [][]uint8 {
+	img := make([][]uint8, dy)
+
+	for i := range img {
+		img[i] = make([]uint8, dx)
+
+		for j := range img[i] {
+			img[i][j] = uint8((j + i) / 2) // (j + i) / 2, j * i / 4, j ^ i
+		}
+	}
+
+	return img
+}
+
+func main() {
+	pic.Show(Pic) // Base64 to PNG: https://codebeautify.org/base64-to-image-converter
+}
