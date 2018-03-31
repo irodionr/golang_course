@@ -1,5 +1,5 @@
 # golang_course
-EPAM Go course 2018
+EPAM Go course, 2018
 
 ## Exercises
 Loops and Functions - https://tour.golang.org/flowcontrol/8  
