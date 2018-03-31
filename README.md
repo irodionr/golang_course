@@ -4,6 +4,9 @@ EPAM Go course 2018
 ## Exercises
 Loops and Functions - https://tour.golang.org/flowcontrol/8  
 Slices - https://tour.golang.org/moretypes/18  
+```go
+go get golang.org/x/tour/pic
+```  
 Maps - https://tour.golang.org/moretypes/23  
 Fibonacci closure - https://tour.golang.org/moretypes/26  
 Stringers - https://tour.golang.org/methods/18  
