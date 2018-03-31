@@ -1,7 +1,7 @@
 # golang_course
 EPAM Go course 2018
 
-Exercises:  
+## Exercises
 Loops and Functions - https://tour.golang.org/flowcontrol/8  
 Slices - https://tour.golang.org/moretypes/18  
 Maps - https://tour.golang.org/moretypes/23  
