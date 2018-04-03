@@ -68,14 +68,13 @@ func (crawler *Crawler) Crawl(url string, depth int) {
 }
 
 func main() {
-	waitGroup := sync.WaitGroup{}
-	waitGroup.Add(1)
-
 	crawler := Crawler{
-		urlCache:  URLCache{urls: make(map[string]bool)},
-		fetcher:   fetcher,
-		waitGroup: waitGroup,
+		urlCache: URLCache{urls: make(map[string]bool)},
+		fetcher:  fetcher,
 	}
+
+	crawler.waitGroup = sync.WaitGroup{}
+	crawler.waitGroup.Add(1)
 
 	go crawler.Crawl("http://golang.org/", 4)
 	crawler.waitGroup.Wait()
