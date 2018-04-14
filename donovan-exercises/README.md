@@ -3,7 +3,7 @@
 **Exercise 1.3**: Experiment to measure the difference in running time between our potentially inefficient versions and the one that uses strings.Join.  
 **Exercise 1.4**: Modify dup2 to print the names of all files in which each duplicated line occurs.  
 **Exercise 1.5**: Change the Lissajous program’s color palette to green on black, for added authenticity. To create the web color #RRGGBB, use color.RGBA{0xRR, 0xGG, 0xBB, 0xff}, where each pair of hexadecimal digits represents the intensity of the red, green, or blue component of the pixel.  
-  
+**Exercise 1.6**: Modify the Lissajous program to produce images in multiple colors by adding more values to palette and then displaying them by changing the third argument of SetColorIndex in some interesting way.  
 **Exercise 1.7**: The function call io.Copy(dst, src) reads from src and writes to dst. Use it instead of ioutil.ReadAll to copy the response body to os.Stdout without requiring a buffer large enough to hold the entire stream. Be sure to check the error result of io.Copy.  
 **Exercise 1.8**: Modify fetch to add the prefix http:// to each argument URL if it is missing. You might want to use strings.HasPrefix.  
 **Exercise 1.9**: Modify fetch to also print the HTTP status code, found in resp.Status.  
