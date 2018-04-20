@@ -14,18 +14,6 @@ func init() {
 	}
 }
 
-// PopCount returns the population count (number of set bits) of x.
-func PopCount(x uint64) int {
-	return int(pc[byte(x>>(0*8))] +
-		pc[byte(x>>(1*8))] +
-		pc[byte(x>>(2*8))] +
-		pc[byte(x>>(3*8))] +
-		pc[byte(x>>(4*8))] +
-		pc[byte(x>>(5*8))] +
-		pc[byte(x>>(6*8))] +
-		pc[byte(x>>(7*8))])
-}
-
 // PopCount2 is PopCount with a loop instead of a single expression.
 func PopCount2(x uint64) int {
 	var s byte
@@ -41,12 +29,6 @@ func main() {
 	arr := []uint64{7, 10, 64, 127, 256}
 
 	start := time.Now()
-	for _, x := range arr {
-		fmt.Printf("PopCount(%d) = %d\n", x, PopCount(x))
-	}
-	fmt.Printf("Time elapsed: %v s\n", time.Since(start).Seconds())
-
-	start = time.Now()
 	for _, x := range arr {
 		fmt.Printf("PopCount2(%d) = %d\n", x, PopCount2(x))
 	}
