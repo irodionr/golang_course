@@ -1,10 +1,11 @@
-// Surface computes an SVG rendering of a 3-D surface function.
 package main
 
 import (
 	"fmt"
+	"io"
+	"log"
 	"math"
-	"os"
+	"net/http"
 )
 
 const (
@@ -19,20 +20,23 @@ const (
 var sin30, cos30 = math.Sin(angle), math.Cos(angle) // sin(30°), cos(30°)
 
 func main() {
-	out, err := os.Create("output.txt")
-	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
-		return
+	handler := func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "image/svg+xml")
+		surface(w)
 	}
-	defer func() {
-		if err := out.Close(); err != nil {
-			fmt.Fprintln(os.Stderr, err)
-		}
-	}()
 
-	fmt.Fprintf(out, "<svg xmlns='http://www.w3.org/2000/svg' "+
+	http.HandleFunc("/", handler)
+	log.Fatal(http.ListenAndServe("localhost:8000", nil))
+}
+
+func surface(out io.Writer) {
+	var s string
+
+	s = fmt.Sprintf("<svg xmlns='http://www.w3.org/2000/svg' "+
 		"style='stroke: grey; fill: white; stroke-width: 0.7' "+
 		"width='%d' height='%d'>", width, height)
+
+	out.Write([]byte(s))
 
 	for i := 0; i < cells; i++ {
 		for j := 0; j < cells; j++ {
@@ -46,12 +50,16 @@ func main() {
 				color = "red"
 			}
 
-			fmt.Fprintf(out, "<polygon points='%g,%g %g,%g %g,%g %g,%g' style='fill:"+color+"'/>\n",
+			s = fmt.Sprintf("<polygon points='%g,%g %g,%g %g,%g %g,%g' style='fill:"+color+"'/>\n",
 				ax, ay, bx, by, cx, cy, dx, dy)
+
+			out.Write([]byte(s))
 		}
 	}
 
-	fmt.Fprintln(out, "</svg>")
+	s = fmt.Sprintln("</svg>")
+
+	out.Write([]byte(s))
 }
 
 func corner(i, j int) (float64, float64, float64) {
