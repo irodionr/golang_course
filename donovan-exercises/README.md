@@ -21,4 +21,5 @@
 **Exercise 3.2**: Experiment with visualizations of other functions from the math package. Can you produce an egg box, moguls, or a saddle?  
 **Exercise 3.3**: Color each polygon based on its height, so that the peaks are colored red (#ff0000) and the valleys blue (#0000ff).  
 **Exercise 3.4**: Following the approach of the Lissajous example in Section 1.7, construct a web server that computes surfaces and writes SVG data to the client. The server must set the Content-Type header like this: w.Header().Set("Content-Type", "image/svg+xml")  
-**Exercise 3.5**: Implement a full-color Mandelbrot set using the function image.NewRGBA and the type color.RGBA or color.YCbCr.
+**Exercise 3.5**: Implement a full-color Mandelbrot set using the function image.NewRGBA and the type color.RGBA or color.YCbCr.  
+**Exercise 3.6**: Supersampling is a technique to reduce the effect of pixelation by computing the color value at several points within each pixel and taking the average. The simplest method is to divide each pixel into four "subpixels." Implement it.
