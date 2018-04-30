@@ -24,3 +24,9 @@
 **Exercise 3.5**: Implement a full-color Mandelbrot set using the function image.NewRGBA and the type color.RGBA or color.YCbCr.  
 **Exercise 3.6**: Supersampling is a technique to reduce the effect of pixelation by computing the color value at several points within each pixel and taking the average. The simplest method is to divide each pixel into four "subpixels." Implement it.  
 **Exercise 3.7**: Another simple fractal uses Newton’s method to find complex solutions to a function such as z^4−1 = 0. Shade each starting point by the number of iterations required to get close to one of the four roots. Color each point by the root it approaches.  
+**Exercise 3.8**: Rendering fractals at high zoom levels demands great arithmetic precision. Implement the same fractal using four different representations of numbers: complex64, complex128, big.Float, and big.Rat. How do they compare in performance and memory usage? At what zoom levels do rendering artifacts become visible?  
+**Exercise 3.9**: Write a web server that renders fractals and writes the image data to the client. Allow the client to specify the x, y, and zoom values as parameters to the HTTP request.  
+**Exercise 3.10**: Write a non-recursive version of comma, using bytes.Buffer instead of string concatenation.  
+**Exercise 3.11**: Enhance comma so that it deals correctly with floating-point numbers and an optional sign.  
+**Exercise 3.12**: Write a function that reports whether two strings are anagrams of each other, that is, they contain the same letters in a different order.  
+**Exercise 3.13**: Write const declarations for KB, MB, up through YB as compactly as you can.
