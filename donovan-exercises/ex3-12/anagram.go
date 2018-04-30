@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"reflect"
 	"strings"
 )
 
@@ -19,11 +18,13 @@ func anagram(s1 string, s2 string) bool {
 			chars2[s2[i]]++
 		}
 
-		if reflect.DeepEqual(chars1, chars2) {
-			return true
+		for c, count := range chars1 {
+			if chars2[c] != count {
+				return false
+			}
 		}
 
-		return false
+		return true
 	}
 
 	return false
